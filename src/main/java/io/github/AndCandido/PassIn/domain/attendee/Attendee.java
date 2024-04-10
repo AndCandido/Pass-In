@@ -3,6 +3,7 @@ package io.github.AndCandido.PassIn.domain.attendee;
 import io.github.AndCandido.PassIn.domain.event.Event;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "attendees")
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Attendee {

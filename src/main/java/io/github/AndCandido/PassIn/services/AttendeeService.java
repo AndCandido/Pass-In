@@ -73,12 +73,12 @@ public class AttendeeService {
             .buildAndExpand(attendeeId)
             .toUri();
 
-        AttendeeBadgeDTO attendeeBadgeDTO = new AttendeeBadgeDTO(
-            attendee.getName(),
-            attendee.getEmail(),
-            uri.toString(),
-            attendee.getEvent().getId()
-        );
+        AttendeeBadgeDTO attendeeBadgeDTO = AttendeeBadgeDTO.builder()
+            .name(attendee.getName())
+            .email(attendee.getEmail())
+            .checkInUrl(uri.toString())
+            .eventId(attendee.getEvent().getId())
+            .build();
 
         return new AttendeeBadgeResponseDTO(attendeeBadgeDTO);
     }

@@ -21,9 +21,10 @@ public class CheckInService {
             throw new CheckInAlreadyExistException("Attendee already checked in");
         }
 
-        CheckIn checkIn = new CheckIn();
-        checkIn.setAttendee(attendee);
-        checkIn.setCreateAt(LocalDateTime.now());
+        CheckIn checkIn = CheckIn.builder()
+            .attendee(attendee)
+            .createAt(LocalDateTime.now())
+            .build();
 
         checkInRepository.save(checkIn);
     }

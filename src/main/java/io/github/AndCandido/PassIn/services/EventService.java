@@ -59,10 +59,12 @@ public class EventService {
             throw new EventFullAttendeesException("Event is full");
         }
 
-        Attendee attendee = new Attendee();
+        Attendee attendee = Attendee.builder()
+            .event(event)
+            .createAt(LocalDateTime.now())
+            .build();
+
         BeanUtils.copyProperties(attendeeRequestDTO, attendee);
-        attendee.setEvent(event);
-        attendee.setCreateAt(LocalDateTime.now());
 
         attendeeService.saveAttendee(attendee);
 
